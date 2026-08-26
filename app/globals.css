@@ -100,7 +100,7 @@ img {
   position: absolute;
   top: 25%;
   left: 50%;
-  z-index: 1;
+  z-index: 25;
   width: 100%;
   overflow: hidden;
   transform: translate(-50%, -50%);
@@ -120,30 +120,52 @@ img {
 
 .hero-portrait {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: clamp(8rem, 22vh, 12rem);
+  right: 0.75rem;
+  bottom: clamp(5rem, 10vh, 6.5rem);
+  left: 0.75rem;
   z-index: 10;
-  width: min(74vw, 520px);
-  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
 }
 
-.magnet {
-  will-change: transform;
-  transition: transform 0.6s ease-in-out;
+.hero-model-shell {
+  position: relative;
+  width: min(72vw, 820px);
+  height: 100%;
+  pointer-events: auto;
 }
 
-.magnet:hover {
-  transition: transform 0.3s ease-out;
-}
-
-.hero-portrait img {
+.hero-model {
   display: block;
   width: 100%;
-  height: auto;
-  filter: drop-shadow(0 32px 55px rgba(12, 36, 42, 0.42));
+  height: 100%;
+  min-height: 280px;
+  filter: drop-shadow(0 28px 45px rgba(12, 36, 42, 0.34));
+  --poster-color: transparent;
+  --progress-bar-color: rgba(237, 247, 245, 0.72);
+  --progress-bar-height: 3px;
+}
+
+.hero-model-hint {
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(237, 247, 245, 0.25);
+  border-radius: 999px;
+  background: rgba(17, 45, 58, 0.44);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: translateX(50%);
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
 }
 
 .hero-bottom {
+  position: relative;
   z-index: 20;
   display: flex;
   align-items: flex-end;
@@ -502,13 +524,6 @@ img {
     margin-top: 0;
   }
 
-  .hero-portrait {
-    top: 50%;
-    bottom: auto;
-    width: 360px;
-    transform: translate(-50%, -50%);
-  }
-
   .hero-bottom {
     padding: 2rem 2.5rem;
   }
@@ -603,10 +618,6 @@ img {
     margin-top: 0;
   }
 
-  .hero-portrait {
-    width: 440px;
-  }
-
   .hero-bottom {
     padding-bottom: 2.5rem;
   }
@@ -682,12 +693,20 @@ img {
     font-size: 1.4rem;
   }
 
-  .hero-portrait {
-    width: 520px;
-  }
 }
 
 @media (max-width: 639px) {
+  .hero-portrait {
+    top: 21%;
+    right: 0.5rem;
+    bottom: 12%;
+    left: 0.5rem;
+  }
+
+  .hero-model-shell {
+    width: min(96vw, 620px);
+  }
+
   .marquee-track img {
     width: 280px;
     height: 180px;

@@ -3,21 +3,21 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jinyu-3d-creator.fbfkcswjdn.chatgpt.site'),
-  title: 'Jinyu — 3D Creator',
+  title: 'Jinyu — Web Developer',
   description:
-    'Portfolio of Jinyu, a multidisciplinary 3D creator crafting vivid digital experiences.',
+    'Portfolio of Jinyu, an exploring and learning developer.',
   openGraph: {
-    title: 'Jinyu — 3D Creator',
+    title: 'Jinyu — Web Developer',
     description:
-      'Portfolio of Jinyu, a multidisciplinary 3D creator crafting vivid digital experiences.',
+      'Portfolio of Jinyu, an exploring and learning developer.',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Jinyu — 3D Creator' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jinyu — 3D Creator',
+    title: 'Jinyu — Web Developer',
     description:
-      'Portfolio of Jinyu, a multidisciplinary 3D creator crafting vivid digital experiences.',
+      'Portfolio of Jinyu, an exploring and learning developer.',
     images: ['/og.png'],
   },
 };

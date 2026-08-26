@@ -8,15 +8,12 @@ import {
 } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import {
-  MouseEvent,
   ReactNode,
   useEffect,
   useRef,
   useState,
 } from 'react';
-
-const PORTRAIT_URL =
-  'https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png';
+import JinyuModel from '../components/JinyuModel';
 
 const marqueeImages = [
   'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
@@ -161,43 +158,10 @@ function FadeIn({
 
 function ContactButton() {
   return (
-    <a className="contact-button" href="mailto:hello@jinyu.design">
+    <a className="contact-button" href="https://www.linkedin.com/in/jinyu-f-b5501623b/">
       Contact me
       <ArrowUpRight aria-hidden="true" size={18} strokeWidth={2.2} />
     </a>
-  );
-}
-
-function Magnet({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  function handleMove(event: MouseEvent<HTMLDivElement>) {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-
-    const closestX = Math.max(rect.left - 150, Math.min(event.clientX, rect.right + 150));
-    const closestY = Math.max(rect.top - 150, Math.min(event.clientY, rect.bottom + 150));
-    const isActive = closestX === event.clientX && closestY === event.clientY;
-
-    if (isActive) {
-      setPosition({
-        x: (event.clientX - (rect.left + rect.width / 2)) / 3,
-        y: (event.clientY - (rect.top + rect.height / 2)) / 3,
-      });
-    }
-  }
-
-  return (
-    <div
-      ref={ref}
-      className="magnet"
-      onMouseMove={handleMove}
-      onMouseLeave={() => setPosition({ x: 0, y: 0 })}
-      style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
-    >
-      {children}
-    </div>
   );
 }
 
@@ -220,9 +184,7 @@ function HeroSection() {
       </div>
 
       <FadeIn delay={0.6} y={30} className="hero-portrait">
-        <Magnet>
-          <img src={PORTRAIT_URL} alt="Stylized 3D portrait of Jinyu" />
-        </Magnet>
+        <JinyuModel />
       </FadeIn>
 
       <div className="hero-bottom">
@@ -344,7 +306,7 @@ function AnimatedText({ text }: { text: string }) {
 
 function AboutSection() {
   const copy =
-    'I turn loose ideas into visual worlds through 3D, motion, and digital design. This sample introduction is here to show the final rhythm and layout—replace it later with your own story, experience, and creative point of view.';
+    'To be updated later';
 
   return (
     <section className="about-section" id="about">
