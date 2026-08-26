@@ -344,7 +344,7 @@ function AnimatedText({ text }: { text: string }) {
 
 function AboutSection() {
   const copy =
-    "With more than five years of experience in design, I focus on branding, web design, and user experience. I truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!";
+    'I turn loose ideas into visual worlds through 3D, motion, and digital design. This sample introduction is here to show the final rhythm and layout—replace it later with your own story, experience, and creative point of view.';
 
   return (
     <section className="about-section" id="about">
