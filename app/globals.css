@@ -1,13 +1,15 @@
 @import 'tailwindcss';
 
 :root {
-  --ink: #173648;
-  --ice: #edf7f5;
-  --paper: #ffffff;
-  --ocean-gradient:
-    radial-gradient(circle at 74% 76%, rgba(128, 196, 164, 0.42), transparent 38%),
-    radial-gradient(circle at 17% 20%, rgba(121, 177, 205, 0.36), transparent 36%),
-    linear-gradient(135deg, #173648 0%, #2e6070 48%, #578979 100%);
+  --ink: #342654;
+  --ice: #fff8ff;
+  --paper: #fff9fd;
+  --lover-gradient:
+    radial-gradient(circle at 16% 18%, rgba(105, 205, 246, 0.92), transparent 34%),
+    radial-gradient(circle at 82% 16%, rgba(183, 140, 246, 0.78), transparent 36%),
+    radial-gradient(circle at 78% 72%, rgba(255, 154, 197, 0.8), transparent 38%),
+    radial-gradient(circle at 17% 84%, rgba(255, 187, 103, 0.58), transparent 34%),
+    linear-gradient(135deg, #76cdf3 0%, #9eb9f8 27%, #cda3ed 50%, #f2a5cc 72%, #f6c77f 100%);
 }
 
 *,
@@ -26,7 +28,7 @@ html {
 body {
   min-width: 320px;
   background: var(--ink);
-  color: var(--ice);
+  color: var(--ink);
   font-family: 'Kanit', sans-serif;
 }
 
@@ -42,11 +44,11 @@ img {
 .site-shell {
   min-height: 100vh;
   overflow-x: clip;
-  background: var(--ocean-gradient);
+  background: var(--lover-gradient);
 }
 
 .hero-heading {
-  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  background: linear-gradient(180deg, #3f367a 0%, #7650a3 58%, #a86872 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -60,7 +62,7 @@ img {
   flex-direction: column;
   overflow: hidden;
   isolation: isolate;
-  background: var(--ocean-gradient);
+  background: var(--lover-gradient);
 }
 
 .hero::after {
@@ -69,7 +71,7 @@ img {
   z-index: -1;
   height: 50%;
   content: '';
-  background: radial-gradient(ellipse, rgba(220, 248, 234, 0.17), transparent 68%);
+  background: radial-gradient(ellipse, rgba(255, 218, 132, 0.48), transparent 68%);
   filter: blur(24px);
 }
 
@@ -102,20 +104,54 @@ img {
   left: 50%;
   z-index: 25;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   transform: translate(-50%, -50%);
 }
 
 .hero-title {
+  position: relative;
   width: max-content;
   margin: 0 auto;
-  font-size: clamp(3rem, 11.8vw, 14rem);
-  font-weight: 900;
-  letter-spacing: 0.035em;
-  line-height: 0.84;
+  font-family: 'Great Vibes', 'Brush Script MT', 'Segoe Script', cursive;
+  font-size: clamp(4rem, 11.4vw, 13rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: none;
   white-space: nowrap;
+}
+
+.hero-title::after {
+  position: absolute;
+  inset: 0;
+  content: attr(data-text);
+  background:
+    radial-gradient(circle, rgba(255, 252, 224, 0.98) 0 1px, transparent 1.7px) 0 1px / 13px 13px,
+    radial-gradient(circle, rgba(255, 211, 92, 0.96) 0 1.2px, transparent 1.9px) 7px 4px / 18px 18px,
+    linear-gradient(105deg, transparent 18%, rgba(255, 235, 159, 0.7) 48%, transparent 78%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 5px rgba(255, 211, 92, 0.58));
+  opacity: 0.82;
+  pointer-events: none;
+  animation: title-gold-dust 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes title-gold-dust {
+  from {
+    background-position: 0 1px, 7px 4px, -30% 0;
+    filter: drop-shadow(0 0 4px rgba(255, 211, 92, 0.46));
+    opacity: 0.68;
+  }
+
+  to {
+    background-position: 5px 4px, 2px 8px, 130% 0;
+    filter: drop-shadow(0 0 8px rgba(255, 226, 137, 0.8));
+    opacity: 0.94;
+  }
 }
 
 .hero-portrait {
@@ -142,9 +178,9 @@ img {
   width: 100%;
   height: 100%;
   min-height: 280px;
-  filter: drop-shadow(0 28px 45px rgba(12, 36, 42, 0.34));
+  filter: drop-shadow(0 28px 45px rgba(89, 57, 128, 0.28));
   --poster-color: transparent;
-  --progress-bar-color: rgba(237, 247, 245, 0.72);
+  --progress-bar-color: rgba(255, 248, 255, 0.78);
   --progress-bar-height: 3px;
 }
 
@@ -153,9 +189,10 @@ img {
   right: 50%;
   bottom: 0;
   padding: 0.45rem 0.8rem;
-  border: 1px solid rgba(237, 247, 245, 0.25);
+  border: 1px solid rgba(255, 248, 255, 0.44);
   border-radius: 999px;
-  background: rgba(17, 45, 58, 0.44);
+  background: rgba(67, 43, 101, 0.58);
+  color: var(--ice);
   font-size: 0.66rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -201,8 +238,8 @@ img {
   padding: 0.75rem 1.5rem;
   outline: 2px solid #fff;
   outline-offset: -3px;
-  background: linear-gradient(123deg, #18011f 7%, #b600a8 37%, #7621b0 72%, #be4c00 100%);
-  box-shadow: 0 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721b1 inset;
+  background: linear-gradient(123deg, #548fd8 5%, #c35aaf 39%, #8a58c7 66%, #df8c42 100%);
+  box-shadow: 0 8px 24px rgba(112, 70, 154, 0.25), 4px 4px 12px rgba(255, 207, 128, 0.28) inset;
   color: white;
   font-size: 0.75rem;
 }
@@ -215,7 +252,7 @@ img {
 .marquee-section {
   overflow: hidden;
   padding: 6rem 0 2.5rem;
-  background: var(--ocean-gradient);
+  background: var(--lover-gradient);
 }
 
 .marquee-viewport {
@@ -249,7 +286,7 @@ img {
   place-items: center;
   overflow: hidden;
   padding: 5rem 1.25rem;
-  background: var(--ocean-gradient);
+  background: var(--lover-gradient);
 }
 
 .about-content {
@@ -385,13 +422,18 @@ img {
   opacity: 0.6;
 }
 
+.service-copy .service-tools {
+  font-weight:600;
+  opacity:0.7;
+}
+
 .projects-section {
   position: relative;
   z-index: 10;
   margin-top: -2.5rem;
   padding: 7rem 1.25rem 2rem;
   border-radius: 40px 40px 0 0;
-  background: var(--ocean-gradient);
+  background: var(--lover-gradient);
 }
 
 .projects-heading {
@@ -414,8 +456,9 @@ img {
   border: 2px solid var(--ice);
   border-radius: 40px;
   background:
-    linear-gradient(rgba(23, 54, 72, 0.95), rgba(46, 96, 112, 0.95)),
-    var(--ocean-gradient);
+    linear-gradient(rgba(61, 47, 103, 0.9), rgba(116, 68, 139, 0.86)),
+    var(--lover-gradient);
+  color: var(--ice);
   transform-origin: center top;
 }
 
@@ -462,7 +505,7 @@ img {
 }
 
 .live-project-button:hover {
-  background: rgba(215, 226, 234, 0.1);
+  background: rgba(255, 248, 255, 0.14);
 }
 
 .project-images {
@@ -491,7 +534,7 @@ img {
   max-width: 1440px;
   margin: 3rem auto 0;
   padding-top: 2rem;
-  border-top: 1px solid rgba(215, 226, 234, 0.25);
+  border-top: 1px solid rgba(52, 38, 84, 0.24);
   gap: 1rem;
   text-transform: uppercase;
 }

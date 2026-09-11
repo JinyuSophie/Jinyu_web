@@ -72,30 +72,39 @@ const aboutArt = [
 
 const services = [
   {
-    name: '3D Modeling',
+    name: 'Digital Products & Web Devleopment',
     description:
-      'Creation of detailed objects, characters, or environments tailored to specific client needs, ideal for games, products, and visualizations.',
+      'I turn ideas into functional, responsive digital experiences - from early concepts and prototypes to working web applications.',
+    tools: 'React . TypeScript . Python . Django . HTML/CSS . APIs . Databases . Git',
   },
   {
-    name: 'Rendering',
+    name: 'AI & Rapid Prototyping',
     description:
-      'High-quality, photorealistic renders that showcase designs with custom lighting, textures, and materials to bring concepts to life.',
+      'I explore how AI can make digital products more useful, intuitive and responsive - especially when it supports people rather than replaces them.',
+    tools: 'AI-assisted workflows . LLM integration . Prototyping . Automation . Experimentation',
   },
   {
-    name: 'Motion Design',
+    name: 'Human-Central Research & Service Thinking',
     description:
-      'Dynamic animations and motion graphics that add energy and storytelling to brands, products, and digital experiences.',
+      'I look beyond the interface to understand the people, behaviours and systems behind a problem.',
+    tools: 'User needs . Accessibility . Service journeys. Qualitative thinking . Social impact . Policy context',
   },
   {
-    name: 'Branding',
+    name: 'Visual Design & Creative Direction',
     description:
-      'Crafting cohesive visual identities—from logos to full brand systems—that communicate a clear and memorable presence.',
+      'I shape ideas visually through interfacce design, motion, digital charaters and storytelling.',
+    tools: 'Figma . UI concepts . Motion design . 3D assets . Personal branding . Filming and photography',
   },
   {
-    name: 'Web Design',
+    name: 'People, Operations & Collaboration',
     description:
-      'Designing clean, modern, and conversion-focused websites with attention to layout, typography, and user experience.',
+      'I am comfortable working where people, pressure and imperfect real-world situations meet.',
+    tools: 'Diversity . Team collaboration . Training . Service operations . Problem solving . Communication . Coordination',
   },
+  {
+    name: 'Technology should make difficult parts of life a little easier.',
+    description:'I am on: ageing, care, accessibility and public services - areas where thoughtful technology can have a tangible impact on everday life',
+  }
 ];
 
 const projects = [
@@ -159,7 +168,7 @@ function FadeIn({
 function ContactButton() {
   return (
     <a className="contact-button" href="https://www.linkedin.com/in/jinyu-f-b5501623b/">
-      Contact me
+      contact me
       <ArrowUpRight aria-hidden="true" size={18} strokeWidth={2.2} />
     </a>
   );
@@ -170,16 +179,24 @@ function HeroSection() {
     <section className="hero" id="top">
       <FadeIn delay={0} y={-20} className="hero-nav-wrap">
         <nav className="hero-nav" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#services">Price</a>
+          <a href="#about">About Me</a>
+          <a href="#services">How I Work</a>
           <a href="#projects">Projects</a>
-          <a href="mailto:hello@jinyu.design">Contact</a>
+          <a href="#playground">Playground</a>
+          <a href="#notes">Notes&Thoughts</a>
+          <a href="#posts">Life</a>
         </nav>
       </FadeIn>
 
       <div className="hero-title-mask">
         <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading hero-title">Hi, I&apos;m Jinyu</h1>
+          <h1
+            aria-label="Hi, I'm Jinyu"
+            className="hero-heading hero-title"
+            data-text="Hi, I'm Jinyu"
+          >
+            Hi, I&apos;m Jinyu
+          </h1>
         </FadeIn>
       </div>
 
@@ -190,7 +207,7 @@ function HeroSection() {
       <div className="hero-bottom">
         <FadeIn delay={0.35} y={20}>
           <p className="hero-intro">
-            A 3D creator driven by crafting striking and unforgettable projects
+            A digital space for the things I build, explore, and care about.
           </p>
         </FadeIn>
         <FadeIn delay={0.5} y={20}>
@@ -340,7 +357,7 @@ function ServicesSection() {
   return (
     <section className="services-section" id="services">
       <FadeIn y={40}>
-        <h2 className="section-heading services-heading">Services</h2>
+        <h2 className="section-heading services-heading">How I Work</h2>
       </FadeIn>
       <div className="services-list">
         {services.map((service, index) => (
@@ -350,6 +367,9 @@ function ServicesSection() {
               <div className="service-copy">
                 <h3>{service.name}</h3>
                 <p>{service.description}</p>
+                {service.tools && (
+                  <p className="service-tools">{service.tools}</p>
+                )}
               </div>
             </article>
           </FadeIn>
